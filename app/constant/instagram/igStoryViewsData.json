@@ -1,0 +1,32 @@
+[
+    {
+        "id": 1,
+        "name": "Story Views",
+        "qnt": 500,
+        "price": 4.45
+    },
+    {
+        "id": 2,
+        "qnt": 1000,
+        "price": 8,
+        "discount": "save 10%"
+    },
+    {
+        "id": 3,
+        "qnt": 2500,
+        "price": 22,
+        "discount": "save 20%"
+    },
+    {
+        "id": 4,
+        "qnt": 5000,
+        "price": 40,
+        "discount": "save 30%"
+    },
+    {
+        "id": 5,
+        "qnt": 10000,
+        "price": 85.99,
+        "discount": "save 40%"
+    }
+]

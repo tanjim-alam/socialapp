@@ -1,0 +1,32 @@
+[
+    {
+        "id": 1,
+        "name": "Viewers",
+        "qnt": 250,
+        "price": 1.10
+    },
+    {
+        "id": 2,
+        "qnt": 500,
+        "price": 2.15,
+        "discount": "save 15%"
+    },
+    {
+        "id": 3,
+        "qnt": 1000,
+        "price": 4.20,
+        "discount": "save 20%"
+    },
+    {
+        "id": 4,
+        "qnt": 2500,
+        "price": 10.10,
+        "discount": "save 30%"
+    },
+    {
+        "id": 5,
+        "qnt": 5000,
+        "price": 19.90,
+        "discount": "save 40%"
+    }
+]

@@ -1,0 +1,56 @@
+[
+    {
+        "id": 1,
+        "name": "Reels Likes",
+        "qnt": 100,
+        "price": 2
+    },
+    {
+        "id": 2,
+        "qnt": 250,
+        "price": 4.10,
+        "discount": "save 15%"
+    },
+    {
+        "id": 3,
+        "qnt": 500,
+        "price": 6.99,
+        "discount": "save 20%"
+    },
+    {
+        "id": 4,
+        "qnt": 1000,
+        "price": 10.99,
+        "discount": "save 25%"
+    },
+    {
+        "id": 5,
+        "qnt": 2500,
+        "price": 25,
+        "discount": "save 30%"
+    },
+    {
+        "id": 6,
+        "qnt": 5000,
+        "price": 42,
+        "discount": "save 40%"
+    },
+    {
+        "id": 7,
+        "qnt": 10000,
+        "price": 85,
+        "discount": "save 50%"
+    },
+    {
+        "id": 8,
+        "qnt": 25000,
+        "price": 160,
+        "discount": "save 70%"
+    },
+    {
+        "id": 9,
+        "qnt": 50000,
+        "price": 315,
+        "discount": "save 70%"
+    }
+]

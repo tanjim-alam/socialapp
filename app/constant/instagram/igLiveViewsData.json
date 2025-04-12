@@ -1,0 +1,78 @@
+{
+    "quantity": [
+        {
+            "id": 1,
+            "name": "Live Views",
+            "qnt": 50
+        },
+        {
+            "id": 2,
+            "discount": "save 20%",
+            "qnt": 100
+        },
+        {
+            "id": 3,
+            "discount": "save 25%",
+            "qnt": 200
+        },
+        {
+            "id": 4,
+            "discount": "save 25%",
+            "qnt": 500
+        },
+        {
+            "id": 5,
+            "discount": "save 30%",
+            "qnt": 1000
+        },
+        {
+            "id": 6,
+            "discount": "save 40%",
+            "qnt": 2000
+        },
+        {
+            "id": 7,
+            "discount": "save 50%",
+            "qnt": 5000
+        },
+        {
+            "id": 8,
+            "discount": "save 59%",
+            "qnt": 10000
+        }
+    ],
+    "durations": [
+        {
+            "id": 1,
+            "duration": 15
+        },
+        {
+            "id": 2,
+            "duration": 30
+        },
+        {
+            "id": 3,
+            "duration": 45
+        },
+        {
+            "id": 4,
+            "duration": 60
+        },
+        {
+            "id": 5,
+            "duration": 90
+        },
+        {
+            "id": 6,
+            "duration": 120
+        },
+        {
+            "id": 7,
+            "duration": 180
+        },
+        {
+            "id": 8,
+            "duration": 240
+        }
+    ]
+}

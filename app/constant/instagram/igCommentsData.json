@@ -1,0 +1,44 @@
+[
+    {
+        "id": 1,
+        "name": "Comments",
+        "qnt": 10,
+        "price": 5
+    },
+    {
+        "id": 2,
+        "qnt": 20,
+        "price": 9,
+        "discount": "save 10%"
+    },
+    {
+        "id": 3,
+        "qnt": 30,
+        "price": 12,
+        "discount": "save 20%"
+    },
+    {
+        "id": 4,
+        "qnt": 40,
+        "price": 15,
+        "discount": "save 25%"
+    },
+    {
+        "id": 5,
+        "qnt": 50,
+        "price": 20.99,
+        "discount": "save 25%"
+    },
+    {
+        "id": 6,
+        "qnt": 100,
+        "price": 38.99,
+        "discount": "save 30%"
+    },
+    {
+        "id": 7,
+        "qnt": 500,
+        "price": 180,
+        "discount": "save 30%"
+    }
+]

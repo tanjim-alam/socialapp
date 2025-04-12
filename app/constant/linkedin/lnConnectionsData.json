@@ -1,0 +1,32 @@
+[
+    {
+        "id": 1,
+        "name": "Connections",
+        "qnt": 200,
+        "price": 45
+    },
+    {
+        "id": 2,
+        "qnt": 500,
+        "price": 108,
+        "discount": "save 20%"
+    },
+    {
+        "id": 3,
+        "qnt": 1000,
+        "price": 216,
+        "discount": "save 25%"
+    },
+    {
+        "id": 4,
+        "qnt": 2000,
+        "price": 432,
+        "discount": "save 30%"
+    },
+    {
+        "id": 5,
+        "qnt": 5000,
+        "price": 1080,
+        "discount": "save 40%"
+    }
+]

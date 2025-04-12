@@ -1,0 +1,62 @@
+[
+    {
+        "id": 1,
+        "name": "Views",
+        "qnt": 100,
+        "price": 0.85
+    },
+    {
+        "id": 2,
+        "qnt": 250,
+        "price": 1.65,
+        "discount": "save 22%"
+    },
+    {
+        "id": 3,
+        "qnt": 500,
+        "price": 3.20,
+        "discount": "save 30%"
+    },
+    {
+        "id": 4,
+        "qnt": 1000,
+        "price": 6.20,
+        "discount": "save 35%"
+    },
+    {
+        "id": 5,
+        "qnt": 2500,
+        "price": 10.99,
+        "discount": "save 40%"
+    },
+    {
+        "id": 6,
+        "qnt": 5000,
+        "price": 20,
+        "discount": "save 45%"
+    },
+    {
+        "id": 7,
+        "qnt": 10000,
+        "price": 38,
+        "discount": "save 50%"
+    },
+    {
+        "id": 8,
+        "qnt": 25000,
+        "price": 80,
+        "discount": "save 55%"
+    },
+    {
+        "id": 9,
+        "qnt": 50000,
+        "price": 152,
+        "discount": "save 60%"
+    },
+    {
+        "id": 10,
+        "qnt": 100000,
+        "price": 299,
+        "discount": "save 65%"
+    }
+]

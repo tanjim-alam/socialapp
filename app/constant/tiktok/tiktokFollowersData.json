@@ -1,0 +1,38 @@
+[
+    {
+        "id": 1,
+        "name": "Followers",
+        "qnt": 200,
+        "price": 6.30
+    },
+    {
+        "id": 2,
+        "qnt": 500,
+        "price": 14,
+        "discount": "save 20%"
+    },
+    {
+        "id": 3,
+        "qnt": 1000,
+        "price": 25,
+        "discount": "save 30%"
+    },
+    {
+        "id": 4,
+        "qnt": 2000,
+        "price": 49.50,
+        "discount": "save 30%"
+    },
+    {
+        "id": 5,
+        "qnt": 5000,
+        "price": 117,
+        "discount": "save 40%"
+    },
+    {
+        "id": 6,
+        "qnt": 10000,
+        "price": 225,
+        "discount": "save 50%"
+    }
+]

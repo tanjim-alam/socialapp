@@ -1,0 +1,44 @@
+[
+    {
+        "id": 1,
+        "name": "Likes",
+        "qnt": 100,
+        "price": 1.50
+    },
+    {
+        "id": 2,
+        "qnt": 250,
+        "price": 3,
+        "discount": "save 20%"
+    },
+    {
+        "id": 3,
+        "qnt": 500,
+        "price": 6,
+        "discount": "save 25%"
+    },
+    {
+        "id": 4,
+        "qnt": 1000,
+        "price": 10.5,
+        "discount": "save 40%"
+    },
+    {
+        "id": 5,
+        "qnt": 2500,
+        "price": 22.90,
+        "discount": "save 50%"
+    },
+    {
+        "id": 6,
+        "qnt": 5000,
+        "price": 45,
+        "discount": "save 60%"
+    },
+    {
+        "id": 7,
+        "qnt": 10000,
+        "price": 85.99,
+        "discount": "save 60%"
+    }
+]

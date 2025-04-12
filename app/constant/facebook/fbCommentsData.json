@@ -1,0 +1,38 @@
+[
+    {
+        "id": 1,
+        "name": "Comments",
+        "qnt": 10,
+        "price": 7
+    },
+    {
+        "id": 2,
+        "qnt": 20,
+        "price": 12,
+        "discount": "Save 20%"
+    },
+    {
+        "id": 3,
+        "qnt": 50,
+        "price": 25,
+        "discount": "Save 30%"
+    },
+    {
+        "id": 4,
+        "qnt": 100,
+        "price": 45,
+        "discount": "Save 30%"
+    },
+    {
+        "id": 5,
+        "qnt": 200,
+        "price": 75,
+        "discount": "Save 40%"
+    },
+    {
+        "id": 6,
+        "qnt": 500,
+        "price": 199,
+        "discount": "Save 50%"
+    }
+]

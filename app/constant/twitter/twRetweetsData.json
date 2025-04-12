@@ -1,0 +1,68 @@
+[
+    {
+        "id": 1,
+        "name": "Retweets",
+        "qnt": 50,
+        "price": 2.70
+    },
+    {
+        "id": 2,
+        "qnt": 100,
+        "price": 4.50,
+        "discount": "save 20%"
+    },
+    {
+        "id": 3,
+        "qnt": 150,
+        "price": 6.50,
+        "discount": "save 25%"
+    },
+    {
+        "id": 4,
+        "qnt": 200,
+        "price": 8.10,
+        "discount": "save 30%"
+    },
+    {
+        "id": 5,
+        "qnt": 250,
+        "price": 10.11,
+        "discount": "save 40%"
+    },
+    {
+        "id": 6,
+        "qnt": 500,
+        "price": 18,
+        "discount": "save 45%"
+    },
+    {
+        "id": 7,
+        "qnt": 1000,
+        "price": 32,
+        "discount": "save 51%"
+    },
+    {
+        "id": 8,
+        "qnt": 2000,
+        "price": 58,
+        "discount": "save 55%"
+    },
+    {
+        "id": 9,
+        "qnt": 5000,
+        "price": 117,
+        "discount": "save 60%"
+    },
+    {
+        "id": 10,
+        "qnt": 7500,
+        "price": 162,
+        "discount": "save 65%"
+    },
+    {
+        "id": 11,
+        "qnt": 10000,
+        "price": 207,
+        "discount": "save 75%"
+    }
+]
