@@ -1,31 +1,31 @@
 "use client"
-import { createContext, useContext, useState, useEffect } from 'react';
+import { createContext, useContext, useState, useEffect, useCallback } from 'react';
 
 const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {
     const [cartItems, setCartItems] = useState([]);
     const [totalPrice, setTotalPrice] = useState(0);
+
+    const calculateTotalPrice = useCallback(() => {
+        const total = cartItems.reduce((acc, item) => acc + item.price, 0);
+        setTotalPrice(total);
+    }, [cartItems]);
+
     useEffect(() => {
         const storedCartItems = localStorage.getItem('cartItems');
         if (storedCartItems) {
             setCartItems(JSON.parse(storedCartItems));
-
         }
     }, []);
 
     useEffect(() => {
         localStorage.setItem('cartItems', JSON.stringify(cartItems));
         calculateTotalPrice();
-    }, [cartItems]);
+    }, [cartItems, calculateTotalPrice]);
 
     const addItemToCart = (item) => {
         setCartItems([...cartItems, item]);
-    };
-
-    const calculateTotalPrice = () => {
-        const total = cartItems.reduce((acc, item) => acc + item.price, 0);
-        setTotalPrice(total);
     };
 
     const removeItemFromCart = (itemId) => {
@@ -45,6 +45,4 @@ export const CartProvider = ({ children }) => {
     );
 };
 
-export const useCart = () => {
-    return useContext(CartContext);
-};
+export const useCart = () => useContext(CartContext);

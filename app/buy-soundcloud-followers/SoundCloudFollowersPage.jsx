@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import PackageSection from "../components/PackageSection";
 import Image from "next/image";
 import Link from "next/link";
-import scFollowersData from "../constant/soundcloud/scFollowersData.json";
+import scFollowersData from "../constant/soundCloud/scFollowersData.json";
 function SoundCloudFollowersPage() {
   return (
     <div className="bg-white">
