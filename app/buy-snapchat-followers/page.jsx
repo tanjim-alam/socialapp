@@ -1,5 +1,5 @@
 import React from 'react'
-import SnapchaFollowersPage from './SnapChatFollowersPage'
+import SnapchaFollowersPage from './SnapchatFollowersPage'
 
 export const generateMetadata = () => {
   return {
