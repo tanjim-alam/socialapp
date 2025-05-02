@@ -76,7 +76,7 @@ function CheckoutPage() {
 
 
     return (
-        <PayPalScriptProvider options={{ "client-id": "AdGX5uNCSCHAnafWXR40TLgMtPceAh2p2yOaqna3nR35DOA-1ogYdDyWkOLlsVIyxS0db8i0JPs7KhuE" }}>
+        <PayPalScriptProvider options={{ "client-id": "AWtCcGY2RQwgB8cC773nMjq-Dojft-nr5XPcrqpRC8TxGXqxZnwpF2KkxAekon6eL-k3zbYSByjx5y2g" }}>
             <div className='bg-[#f4f4fa] h-full'>
                 {/* ======================== */}
                 {isLoading ? <Spinner
