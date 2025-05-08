@@ -51,9 +51,9 @@ export default function ServicesLinkModel({ isOpen, onClose, data }) {
 
         <div className='p-3'>
           <div className='flex flex-col'>
-            <span className='text-sm'>Select Service</span>
+            <span className='text-sm text-black'>Select Service</span>
             <select
-              className='p-2 mt-1 rounded-2xl shadow outline-none border-x-2 border-[var(--primary)] text-md w-full'
+              className='p-2 mt-1 rounded-2xl shadow outline-none border-x-2 border-[var(--primary)] text-md w-full text-black'
               onChange={(e) => handleOnChangePackage(e.target.value)}
             >
               {data?.map((item, i) => (

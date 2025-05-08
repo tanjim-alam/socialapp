@@ -1,8 +1,12 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { useCart } from "../context/CartContext";
+import Link from "next/link";
+import { IoMdDoneAll } from "react-icons/io";
+import { useRouter } from "next/navigation";
 
 function PackageSectionForLive({ packageData, serviceName, placeHolder }) {
+  const navigate = useRouter();
   const [isActiveCard, setIsActiveCard] = useState(1);
   const [isActiveDurationCard, setIsActiveDurationCard] = useState(1);
   const [currDuration, setCurrDuration] = useState(15);
@@ -11,18 +15,20 @@ function PackageSectionForLive({ packageData, serviceName, placeHolder }) {
   const [currItemQnt, setCurrItemQnt] = useState(packageData?.quantity[0]?.qnt);
   const [userLink, setUserLink] = useState("");
   const { cartItems, addItemToCart } = useCart();
+  const [toast, setToast] = useState(false);
+  const [urlError, setUrlError] = useState(false);
 
   function handleOnClickCard(item) {
     setIsActiveCard(item.id);
     setCurrQuantity(item.qnt);
-    setCurrItemQnt(item.qnt);  // Keep item quantity in sync
+    setCurrItemQnt(item.qnt); 
   }
 
   function handleOnChangeDuration(event) {
     const selectedDuration = packageData.durations.find(
       (data) => data.duration === Number(event.target.value)
     );
-    setCurrDuration(selectedDuration?.duration || 15); // Fallback to 15 minutes
+    setCurrDuration(selectedDuration?.duration || 15);
     setIsActiveDurationCard(selectedDuration?.id || 1);
   }
 
@@ -31,21 +37,41 @@ function PackageSectionForLive({ packageData, serviceName, placeHolder }) {
     const totalLiveViews = 50;
     const totalPrice = 1.5;
 
-    // Calculate price per minute and price per live view
     const pricePerMinute = totalPrice / totalMinutes;
     const pricePerLiveView = totalPrice / totalLiveViews;
 
-    // Calculate the current price based on given duration and live views
     const currentPrice = pricePerMinute * currDuration * pricePerLiveView * currQuantity;
     setCurrItemPrice(currentPrice);
   }
 
   useEffect(() => {
     getPrice();
-  }, [currQuantity, currDuration]); // Recalculate the price whenever quantity or duration changes
+  }, [currQuantity, currDuration]); 
 
   function handleAddToCart() {
-    const nextId = cartItems.length; // Could be replaced with a unique ID generation approach
+    if (userLink == "") {
+      setUrlError(true);
+      return;
+    }
+    const nextId = cartItems.length;
+    const item = {
+      id: nextId,
+      serviceName,
+      price: currItemPrice,
+      quantity: currItemQnt,
+      link: userLink,
+    };
+    setToast(true);
+    addItemToCart(item);
+    setUserLink("")
+  }
+
+  function handleGoToCheckout() {
+    if (userLink == "") {
+      setUrlError(true);
+      return;
+    }
+    const nextId = cartItems.length;
     const item = {
       id: nextId,
       serviceName,
@@ -54,7 +80,17 @@ function PackageSectionForLive({ packageData, serviceName, placeHolder }) {
       link: userLink,
     };
     addItemToCart(item);
+    navigate.push("/checkout")
+    setUserLink("")
   }
+
+  useEffect(() => {
+      if (toast) {
+          setTimeout(() => {
+              setToast(false)
+          }, 2000)
+      }
+  }, [toast]);
 
   return (
     <div className="bg-white p-4 md:p-6 rounded-lg flex flex-col justify-center gap-2 items-center shadow border-y-2 border-[var(--primary)]">
@@ -87,7 +123,7 @@ function PackageSectionForLive({ packageData, serviceName, placeHolder }) {
         <p className="text-sm text-gray-700">Select Duration</p>
         <select
           className="w-full border text-gray-700 border-[var(--primary)] shadow outline-none p-2"
-          value={currDuration} // Ensure the selected duration stays synced
+          value={currDuration}
           onChange={handleOnChangeDuration}
         >
           {packageData?.durations?.map((data, i) => (
@@ -106,16 +142,39 @@ function PackageSectionForLive({ packageData, serviceName, placeHolder }) {
           type="text"
           value={userLink}
           onChange={(e) => setUserLink(e.target.value)}
+          onClick={() => setUrlError(false)}
           placeholder={placeHolder}
         />
       </div>
       <div className="mt-4 flex justify-between w-full gap-2 items-center">
-        <button className="bg-[var(--primary)] w-full font-medium cursor-pointer text-white p-2 shadow">
+        <button 
+        onClick={handleGoToCheckout}
+        className="bg-[var(--primary)] w-full font-medium cursor-pointer text-white p-2 shadow">
           Buy Now
         </button>
         <button onClick={handleAddToCart} className="border border-[var(--primary)] w-full font-medium cursor-pointer text-[var(--primary)] p-2 shadow">
           Add To Cart
         </button>
+      </div>
+      <div className="mt-1 flex items-center">
+        {urlError ? (
+          <p className="text-red-600 text-sm font-medium">
+            Please Enter Your Live Link
+          </p>
+        ) : null}
+        <div>
+          {toast ? (
+            <div className="flex mt-4 items-center gap-2 p-2 text-slate-600 bg-green-200">
+              <span>
+                <IoMdDoneAll />
+              </span>
+              <p className="text-black">
+                The product has been added to your Shopping Cart.
+              </p>
+              <Link href={"/cart"}>Go to Cart</Link>
+            </div>
+          ) : null}
+        </div>
       </div>
     </div>
   );

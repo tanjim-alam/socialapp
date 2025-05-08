@@ -1,15 +1,20 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { useCart } from "../context/CartContext";
+import { useRouter } from "next/navigation";
+import { IoMdDoneAll } from "react-icons/io";
+import Link from "next/link";
 
 function PackageSection({ packageData, serviceName, placeHolder }) {
+  const navigate = useRouter();
   const [isActiveCard, setIsActiveCard] = useState(1);
   const [currItemPrice, setCurrItemPrice] = useState(null);
   const [currItemQnt, setCurrItemQnt] = useState(null);
   const [userLink, setUserLink] = useState("");
   const { cartItems, addItemToCart } = useCart();
+  const [toast, setToast] = useState(false);
+  const [urlError, setUrlError] = useState(false);
 
-  // Initialize currItemPrice and currItemQnt if packageData is available
   useEffect(() => {
     if (packageData && packageData.length > 0) {
       const firstItem = packageData[0];
@@ -24,7 +29,11 @@ function PackageSection({ packageData, serviceName, placeHolder }) {
     setCurrItemQnt(item.qnt);
   }
 
-  function handleAddToCart() {
+  function handleGoToCheckout() {
+    if (userLink == "") {
+      setUrlError(true);
+      return;
+    }
     let nextId = cartItems.length;
     const item = {
       id: nextId,
@@ -34,7 +43,35 @@ function PackageSection({ packageData, serviceName, placeHolder }) {
       link: userLink,
     };
     addItemToCart(item);
+    navigate.push("/checkout")
+    setUserLink("")
   }
+
+  function handleAddToCart() {
+    if (userLink == "") {
+      setUrlError(true);
+      return;
+    }
+    let nextId = cartItems.length;
+    const item = {
+      id: nextId,
+      serviceName,
+      price: currItemPrice,
+      quantity: currItemQnt,
+      link: userLink,
+    };
+    addItemToCart(item);
+    setToast(true);
+    setUserLink("")
+  }
+
+  useEffect(() => {
+    if (toast) {
+        setTimeout(() => {
+            setToast(false)
+        }, 2000)
+    }
+}, [toast]);
 
   if (!packageData || packageData.length === 0) {
     return <div className="text-center">No package data available.</div>;
@@ -48,7 +85,9 @@ function PackageSection({ packageData, serviceName, placeHolder }) {
             onClick={() => handleOnClickCard(data)}
             key={i}
             className={`border cursor-pointer shadow p-3 rounded flex flex-col items-center justify-center border-[var(--primary)] ${
-              isActiveCard === data.id ? "bg-[var(--primary)]" : "bg-transparent"
+              isActiveCard === data.id
+                ? "bg-[var(--primary)]"
+                : "bg-transparent"
             }`}
           >
             <p
@@ -88,11 +127,15 @@ function PackageSection({ packageData, serviceName, placeHolder }) {
           type="text"
           value={userLink}
           onChange={(e) => setUserLink(e.target.value)}
+          onClick={() => setUrlError(false)}
           placeholder={placeHolder}
         />
       </div>
       <div className="mt-4 flex justify-between w-full gap-2 items-center">
-        <button className="bg-[var(--primary)] w-full font-medium cursor-pointer text-white p-2 shadow">
+        <button
+          onClick={handleGoToCheckout}
+          className="bg-[var(--primary)] w-full font-medium cursor-pointer text-white p-2 shadow"
+        >
           Buy Now
         </button>
         <button
@@ -101,6 +144,26 @@ function PackageSection({ packageData, serviceName, placeHolder }) {
         >
           Add To Cart
         </button>
+      </div>
+      <div className="mt-1 flex items-center">
+        {urlError ? (
+          <p className="text-red-600 text-sm font-medium">
+            Please Enter Your Link
+          </p>
+        ) : null}
+        <div>
+          {toast ? (
+            <div className="flex mt-4 items-center gap-2 p-2 text-slate-600 bg-green-200">
+              <span>
+                <IoMdDoneAll />
+              </span>
+              <p className="text-black">
+                The product has been added to your Shopping Cart.
+              </p>
+              <Link href={"/cart"}>Go to Cart</Link>
+            </div>
+          ) : null}
+        </div>
       </div>
     </div>
   );
